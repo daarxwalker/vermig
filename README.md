@@ -12,7 +12,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-//go:embed **/*.sql
+//go:embed migrations/**/*.sql
 var migrations embed.FS
 
 func main() {
