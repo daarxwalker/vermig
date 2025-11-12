@@ -44,14 +44,17 @@ func main() {
 
 ## Files organization
 ### Example migrator package
+<pre>
 project/
 ├── main.go
 ├── go.mod
 └── migrations/
-└── schema/
-└── 00_users/
-├── 1.0.0_create-users_up.sql
-└── 1.0.0_create-users_down.sql
+    └── schema/
+        └── 00_users/
+            ├── 1.0.0_create-users_up.sql
+            └── 1.0.0_create-users_down.sql
+</pre>
+
 
 <br>
 
