@@ -1,5 +1,5 @@
 # VERMIG
-> Version-based PostgreSQL auto-migration tool written in Go
+> Minimalistic version-based PostgreSQL migration tool for Go — no external CLI, just pure Go.
 
 ```go
 package migrations
@@ -38,4 +38,38 @@ func main() {
     }
 }
 
+```
+
+<br>
+
+## Files organization
+### Example migrator package
+project/
+├── main.go
+├── go.mod
+└── migrations/
+└── schema/
+└── 00_users/
+├── 1.0.0_create-users_up.sql
+└── 1.0.0_create-users_down.sql
+
+<br>
+
+## Scope
+> Nested folders are automatically used as migration scopes. <br>
+> For example: schema/00_users becomes the scope name schema.00_users. <br>
+
+<br>
+
+## SQL filename conventions
+- The version must follow semantic versioning.
+- Three sections must be splitted by underscore (_).
+- 1.0.0: version
+- create-users: The name must use dashes instead of underscores.
+- up/down: run upgrade or downgrade by version
+```
+<version>_<name>_<direction>.sql
+
+1.0.0_create-users_up.sql
+1.0.0_create-users_down.sql
 ```
