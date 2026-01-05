@@ -33,6 +33,10 @@ func main() {
     if createMigratorErr != nil {
         log.Fatalf("create migrator failed: %s\n", createMigratorErr)
     }
+    if migrateErr := mg.MigrateLatest(ctx); migrateErr != nil {
+        log.Fatalf("migrate failed: %s\n", migrateErr)
+    }
+    // OR
     if migrateErr := mg.Migrate(ctx, "1.0.0"); migrateErr != nil {
         log.Fatalf("migrate failed: %s\n", migrateErr)
     }

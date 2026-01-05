@@ -3,13 +3,16 @@ package vermig
 import "time"
 
 type Migration struct {
-	Id           string    `json:"id"`
-	Name         string    `db:"name"`
-	MajorVersion int       `db:"major_version"`
-	MinorVersion int       `db:"minor_version"`
-	PatchVersion int       `db:"patch_version"`
-	Scope        string    `db:"scope"`
-	QueryUp      string    `db:"query_up"`
-	QueryDown    string    `db:"query_down"`
-	CreatedAt    time.Time `db:"created_at"`
+	Id         string    `json:"id"`
+	Name       string    `db:"name"`
+	Version    string    `db:"version"`
+	Major      int64     `db:"major"`
+	Minor      int64     `db:"minor"`
+	Patch      int64     `db:"patch"`
+	Prerelease string    `db:"prelease"`
+	Scope      string    `db:"scope"`
+	Up         string    `db:"up"`
+	Down       string    `db:"down"`
+	Checksum   string    `db:"checksum"`
+	CreatedAt  time.Time `db:"created_at"`
 }
